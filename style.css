@@ -6,3 +6,44 @@
     /* border-box makes the size be equal to whatever height and width you have given an element */
     box-sizing: border-box;
 }
+
+body {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.calculator-body {
+    background-color: aquamarine;
+    margin: 50px auto;
+    
+    width: 500px;
+    height: 450px;
+}
+.calculator-body .buttons {
+    height: 320px;
+    width: 500px;
+    margin: 0  auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;    
+    align-items: center;
+}
+.calculator-body h1{
+    text-align: center;
+    padding: 10px;
+    margin: 10px;
+    background-color: bisque;
+}
+
+button{
+    background-color: aqua;
+    height: 60px;
+    width: 120px;
+    font-size: 32px;
+}
+
+ .clear {
+    width: 500px;
+    margin:  0 10px;
+}
