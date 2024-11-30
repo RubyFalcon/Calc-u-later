@@ -14,7 +14,7 @@ body {
 }
 
 .calculator-body {
-    background-color: rgb(116, 33, 8);
+    background-color: rgb(47, 47, 47);
     margin: 150px auto;
     
     width: 500px;
@@ -33,11 +33,11 @@ body {
     text-align: right;
     padding: 10px;
     margin: 10px;
-    background-color: rgb(214, 209, 202);
+    background-color: #b2b9b7;
 }
 
 button{
-    background-color: rgb(106, 121, 121);
+    background-color: #217c7e;
     height: 60px;
     width: 120px;
     font-size: 32px;
@@ -45,6 +45,11 @@ button{
 }
 
  .clear {
+    
     width: 500px;
     margin:  0 10px;
+}
+
+.clear, .operand {
+    background-color: #ff9100;
 }

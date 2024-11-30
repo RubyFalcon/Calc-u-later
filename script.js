@@ -27,7 +27,7 @@ const add = (...args) => args.reduce((accum, val) => accum + val, 0);
   const displayedNum =  document.querySelector("#display");
 
 
-// todo--  create a func which uses queryselectall class numbers and foreach number updates displayedNum;
+// todo-- handle if 0 then h1 = 0 else if !0
 const numbers = document.querySelectorAll(".number");
 numbers.forEach(number => {
   number.addEventListener("click", ()=>  displayedNum.textContent= number.value)
