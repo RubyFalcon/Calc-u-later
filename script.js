@@ -22,3 +22,14 @@ const add = (...args) => args.reduce((accum, val) => accum + val, 0);
   let firstNum, secondNum, operator;
 
   const operate = (a,b, operator) => operator(a,b);
+
+
+  const displayedNum =  document.querySelector("#display");
+
+
+// todo--  create a func which uses queryselectall class numbers and foreach number updates displayedNum;
+const numbers = document.querySelectorAll(".number");
+numbers.forEach(number => {
+  number.addEventListener("click", ()=>  displayedNum.textContent= number.value)
+})
+// console.table(numbers)
