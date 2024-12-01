@@ -44,8 +44,10 @@ numbers.forEach(number => {
 // console.table(numbers)
 
 
-function operate(operator,a , b) {
+function operate(operator,aString , bString) {
     let operatedNum;
+    a = parseInt(aString);
+    b = parseInt(bString);
     switch(operator){
       case "/":
         operatedNum = divide(a,b);
@@ -63,3 +65,49 @@ function operate(operator,a , b) {
     return operatedNum;
 }
 
+function clearContent(){
+  displayedNum.textContent = "0";
+}
+
+const clear= document.querySelector(".clear")
+clear.addEventListener("click",()=> clearContent());
+
+
+const  operators = document.querySelectorAll('.operator');
+let prevOperator = "";
+console.log(operators)
+operators.forEach((operator)=> {
+  operator.addEventListener("click", ()=> {
+    let prevValue = displayedNum.textContent;
+
+    let nextValue= "";
+    console.log("prev value is: " , prevValue);
+    console.log("op value is: ", operator.value);
+    
+    if (operator.value == "=" ) {
+        console.log("= was run")
+        if (prevOperator == "") {
+          displayedNum.textContent = prevValue;
+          console.log(" we got here")
+        }
+        else {
+          console.log("second statementd");
+          console.log("prev value is: " , prevValue);
+          console.log("op value is: ", operator.value);
+          console.log("prev op is:", prevOperator);
+          
+          nextValue = prevValue;
+          console.log("next value is: ",  nextValue)
+          displayedNum.textContent = operate(prevOperator, prevValue, nextValue);
+        }
+      
+    } else {
+      prevOperator = operator.value;
+      displayedNum.textContent = "";
+      
+      
+    }
+  }
+    
+  )
+})
