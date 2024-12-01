@@ -50,6 +50,6 @@ button{
     margin:  0 10px;
 }
 
-.clear, .operand {
+.clear, .operator {
     background-color: #ff9100;
 }
