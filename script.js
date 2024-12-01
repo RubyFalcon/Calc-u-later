@@ -17,7 +17,7 @@ const add = (...args) => args.reduce((accum, val) => accum + val, 0);
 
   const multiply = (...args) => args.reduce((accum, val) => args.length === 0 ? 0:  accum * val, 1);
 
-  const divide = (...args) => args.reduce((accum, val) => args.length === 0? 0: accum / val, 1);
+  const divide = (...args) => args.reduce((accum, val) => args.length === 0? 0: val / accum, 1);
   
 
 
@@ -45,6 +45,9 @@ numbers.forEach(number => {
 
 
 function operate(operator,aString , bString) {
+    if(bString == ""){
+      return aString;
+    }
     let operatedNum;
     a = parseInt(aString);
     b = parseInt(bString);
@@ -75,38 +78,40 @@ clear.addEventListener("click",()=> clearContent());
 
 const  operators = document.querySelectorAll('.operator');
 let prevOperator = "";
-console.log(operators)
+let prevValue = "";
+let isNewValue = false;
+let nextValue= "";
 operators.forEach((operator)=> {
   operator.addEventListener("click", ()=> {
     let prevValue = displayedNum.textContent;
 
-    let nextValue= "";
+    
     console.log("prev value is: " , prevValue);
     console.log("op value is: ", operator.value);
-    
-    if (operator.value == "=" ) {
-        console.log("= was run")
-        if (prevOperator == "") {
-          displayedNum.textContent = prevValue;
-          console.log(" we got here")
-        }
-        else {
-          console.log("second statementd");
-          console.log("prev value is: " , prevValue);
-          console.log("op value is: ", operator.value);
-          console.log("prev op is:", prevOperator);
-          
-          nextValue = prevValue;
-          console.log("next value is: ",  nextValue)
-          displayedNum.textContent = operate(prevOperator, prevValue, nextValue);
-        }
-      
-    } else {
+
+    if(operator.value != "=") {
       prevOperator = operator.value;
+      nextValue = prevValue;
+      console.log("next value in if statement: ", nextValue);
       displayedNum.textContent = "";
       
       
     }
+    else if (operator.value == "=" ) {
+          
+          console.log("= was run")
+        
+       
+
+          console.log("second statementd");
+          console.log("prev value is: " , prevValue);
+          console.log("op value is: ", operator.value);
+          console.log("prev op is:", prevOperator);
+          console.log("next value is: ",  nextValue)
+          displayedNum.textContent = operate(prevOperator,prevValue, nextValue);
+        }
+      
+    
   }
     
   )
