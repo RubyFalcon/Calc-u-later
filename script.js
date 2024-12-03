@@ -85,30 +85,21 @@ operators.forEach((operator)=> {
   operator.addEventListener("click", ()=> {
     let prevValue = displayedNum.textContent;
 
-    
-    console.log("prev value is: " , prevValue);
-    console.log("op value is: ", operator.value);
 
     if(operator.value != "=") {
       prevOperator = operator.value;
       nextValue = prevValue;
-      console.log("next value in if statement: ", nextValue);
       displayedNum.textContent = "";
       
       
     }
     else if (operator.value == "=" ) {
           
-          console.log("= was run")
-        
-       
+          
+          let operatedValue = operate(prevOperator,prevValue, nextValue);
+          displayedNum.textContent = operatedValue
+          prevValue = operatedValue;
 
-          console.log("second statementd");
-          console.log("prev value is: " , prevValue);
-          console.log("op value is: ", operator.value);
-          console.log("prev op is:", prevOperator);
-          console.log("next value is: ",  nextValue)
-          displayedNum.textContent = operate(prevOperator,prevValue, nextValue);
         }
       
     
